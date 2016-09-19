@@ -54,22 +54,34 @@ ljosa2013 %>%
 ```
 
 
-Save the images
+Select some images
 
 ```{r warning=FALSE, message=FALSE}
-images <-
+df <-
 ljosa2013 %>%
-  filter(Metadata_Plate == "Week1_22123" & Metadata_Well == "B04") %>%
+  filter(Metadata_Plate == "Week1_22123" & Metadata_Well == "B04") 
+
+df %>% 
+  select(Metadata_Plate, Metadata_Well, 
+         Metadata_Compound, Metadata_Concentration) %>%
+  knitr::kable()
+
+```
+
+Save those images
+
+```{r warning=FALSE, message=FALSE}
+images <- 
+  df %>%
   save_images(per_row = 2, max_intensity = max_intensity)
 ```
 
 Select one image and view it
 
-```{r}
-actin <- images$Week1_22123_B04$Actin %>%
-  EBImage::readImage() 
-```
-
-```{r display, fig.width=8}
-EBImage::display(actin)
+```{r display, fig.width=10, fig.height=8}
+EBImage::rgbImage(
+  images$Week1_22123_B04$Actin %>% EBImage::readImage(),
+  images$Week1_22123_B04$Tubulin %>% EBImage::readImage(),
+  images$Week1_22123_B04$DAPI %>% EBImage::readImage()) %>%
+  EBImage::display()
 ```
