@@ -30,7 +30,7 @@ The minimal set of columns are:
 ljosa2013 %>%
   slice(1:5) %>%
   select(Metadata_Plate, Metadata_Well, Metadata_Site, Metadata_pert_id, 
-         matches("URL"))
+         matches("URL")) %>%
   knitr::kable()
 
 ```
