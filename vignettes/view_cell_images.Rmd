@@ -12,9 +12,6 @@ vignette: >
 
 ```{r setup, echo=FALSE}
 library(knitr)
-.dpi = 300
-set.seed(0)
-opts_chunk$set(comment=NA, fig.align="center", dpi=.dpi)
 options(EBImage.display = "raster")
 ```
 
@@ -27,11 +24,13 @@ library(magrittr)
 ```
 
 
-The data should be formatted like this
+The minimal set of columns are:
 
 ```{r}
 ljosa2013 %>%
   slice(1:5) %>%
+  select(Metadata_Plate, Metadata_Well, Metadata_Site, Metadata_pert_id, 
+         matches("URL"))
   knitr::kable()
 
 ```
@@ -39,7 +38,7 @@ ljosa2013 %>%
 Compute robust maximum intensity per channel to normalize the intensities
 (otherwise the images appear too dim).
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 # B02 is DMSO
 max_intensity <- 
 ljosa2013 %>%
@@ -57,7 +56,7 @@ ljosa2013 %>%
 
 Save the images
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 images <-
 ljosa2013 %>%
   filter(Metadata_Plate == "Week1_22123" & Metadata_Well == "B04") %>%
@@ -71,6 +70,6 @@ actin <- images$Week1_22123_B04$Actin %>%
   EBImage::readImage() 
 ```
 
-```{r display, fig.width=dim(actin)[1L]/.dpi, fig.height=dim(actin)[2L]/.dpi, dpi=.dpi/2}
+```{r display, fig.width=8}
 EBImage::display(actin)
 ```
