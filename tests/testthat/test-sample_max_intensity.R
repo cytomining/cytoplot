@@ -1,8 +1,14 @@
 context("sample_max_intensity")
 
-## TODO: Rename context
-## TODO: Add more tests
+test_that("sample_max_intensity works", {
 
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+  expect_equal(
+    ljosa2013 %>%
+      dplyr::filter(Metadata_Plate == "Week1_22123" &
+                      Metadata_Well == "B02") %>%
+      sample_max_intensity(),
+    list(Actin = 0.0869739833676661,
+         DAPI = 0.0417340352483406,
+         Tubulin = 0.197937590600443))
+
 })
