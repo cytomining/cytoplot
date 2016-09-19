@@ -1,0 +1,6 @@
+packrat/lib*/
+packrat
+.Rproj.user
+.Rhistory
+.Rprofile
+cytovizr.Rproj
