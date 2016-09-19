@@ -1,10 +1,19 @@
 context("save_images")
 
-## TODO: Rename context
-## TODO: Add more tests
-
 test_that("save_images works", {
-  df <- ljosa2013
-  save_images(dplyr::slice(ljosa2013, 1),
-              per_row = 3)
+  save_images(dplyr::filter(ljosa2013,
+                            Metadata_Plate == "Week1_22123" &
+                              Metadata_Well == "B04"),
+              per_row = 2)
+
+
+  a <-
+    EBImage::readImage("cytochalasin_b_10_Week1_22123_B04_Actin.jpg")
+
+  b <-
+    EBImage::readImage(
+      system.file("extdata", "cytochalasin_b_10_Week1_22123_B04_Actin.jpg",
+                  package = "cytovizr"))
+
+  expect_equal(a, b)
 })

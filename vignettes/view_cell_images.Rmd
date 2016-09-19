@@ -1,0 +1,76 @@
+---
+title: "View cell images"
+author: "Shantanu SIngh"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{View cell images}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r setup, echo=FALSE}
+library(knitr)
+.dpi = 300
+set.seed(0)
+opts_chunk$set(comment=NA, fig.align="center", dpi=.dpi)
+options(EBImage.display = "raster")
+```
+
+
+```{r warning=FALSE, message=FALSE}
+library(cytovizr)
+library(dplyr)
+library(magrittr)
+
+```
+
+
+The data should be formatted like this
+
+```{r}
+ljosa2013 %>%
+  slice(1:5) %>%
+  knitr::kable()
+
+```
+
+Compute robust maximum intensity per channel to normalize the intensities
+(otherwise the images appear too dim).
+
+```{r}
+# B02 is DMSO
+max_intensity <- 
+ljosa2013 %>%
+  filter(Metadata_Plate %in% c("Week1_22123", 
+                               "Week1_22141", 
+                               "Week1_22161") & 
+           Metadata_Well == "B02") %>%
+  group_by(Metadata_Plate) %>%
+  arrange(Metadata_Well, Metadata_Site) %>%
+  slice(1:4) %>%
+  ungroup() %>% 
+  sample_max_intensity()
+```
+
+
+Save the images
+
+```{r}
+images <-
+ljosa2013 %>%
+  filter(Metadata_Plate == "Week1_22123" & Metadata_Well == "B04") %>%
+  save_images(per_row = 2, max_intensity = max_intensity)
+```
+
+Select one image and view it
+
+```{r}
+actin <- images$Week1_22123_B04$Actin %>%
+  EBImage::readImage() 
+```
+
+```{r display, fig.width=dim(actin)[1L]/.dpi, fig.height=dim(actin)[2L]/.dpi, dpi=.dpi/2}
+EBImage::display(actin)
+```

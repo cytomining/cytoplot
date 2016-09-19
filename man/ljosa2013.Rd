@@ -4,7 +4,7 @@
 \name{ljosa2013}
 \alias{ljosa2013}
 \title{Image metadata and URLs for Ljosa et al., J. Biomol. Screening, 2013.}
-\format{An object of class \code{rowwise_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 2528 rows and 12 columns.}
+\format{An object of class \code{tbl_df} (inherits from \code{data.frame}) with 2528 rows and 12 columns.}
 \source{
 \url{https://data.broadinstitute.org/bbbc/BBBC021/}
 }

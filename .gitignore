@@ -4,3 +4,4 @@ packrat
 .Rhistory
 .Rprofile
 cytovizr.Rproj
+inst/doc
