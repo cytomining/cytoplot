@@ -1,7 +1,10 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
-
+sudo: required
+addons:
+    apt:
+        packages:
+          libfftw3-dev
 language: R
-sudo: false
 cache: packages
 bioc_required: true
 bioc_packages:
