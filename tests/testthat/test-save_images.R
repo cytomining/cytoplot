@@ -13,7 +13,7 @@ test_that("save_images works", {
   b <-
     EBImage::readImage(
       system.file("extdata", "cytochalasin_b_10_Week1_22123_B04_Actin.jpg",
-                  package = "cytovizr"))
+                  package = "cytoplot"))
 
   expect_equal(a, b)
 })

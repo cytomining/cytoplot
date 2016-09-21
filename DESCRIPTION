@@ -1,4 +1,4 @@
-Package: cytovizr
+Package: cytoplot
 Type: Package
 Title: Package for visualizing high-dimensional single-cell data
 Version: 0.1.0

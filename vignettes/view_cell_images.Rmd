@@ -17,7 +17,7 @@ options(EBImage.display = "raster")
 
 
 ```{r warning=FALSE, message=FALSE}
-library(cytovizr)
+library(cytoplot)
 library(dplyr)
 library(magrittr)
 

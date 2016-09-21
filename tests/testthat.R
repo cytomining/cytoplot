@@ -1,4 +1,4 @@
 library(testthat)
-library(cytovizr)
+library(cytoplot)
 
-test_check("cytovizr")
+test_check("cytoplot")
