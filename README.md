@@ -1,4 +1,4 @@
-[![Travis-CI Build Status](https://travis-ci.org/shntnu/cytovizr.svg?branch=master)](https://travis-ci.org/shntnu/cytovizr)
+[![Travis-CI Build Status](https://travis-ci.org/shntnu/cytoplot.svg?branch=master)](https://travis-ci.org/shntnu/cytoplot)
 
-# cytovizr
+# cytoplot
 Package for visualizing high-dimensional single-cell data
