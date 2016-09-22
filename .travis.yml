@@ -5,8 +5,8 @@ addons:
         packages:
           libfftw3-dev
 language: R
-# cache: packages
-# bioc_required: true
-# bioc_packages:
-#   - fftwtools
-#   - EBImage
+cache: packages
+bioc_required: true
+bioc_packages:
+  - fftwtools
+  - EBImage
