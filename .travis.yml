@@ -5,7 +5,7 @@ addons:
         packages:
           libfftw3-dev
 language: R
-cache: packages
+#cache: packages
 bioc_required: true
 bioc_packages:
   - fftwtools
