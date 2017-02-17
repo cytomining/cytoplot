@@ -18,6 +18,6 @@ install.packages("devtools")
 
 install.packages("BiocInstaller")
 
-devtools::install_github("shntnu/cytoplot", dependencies = TRUE, build_vignettes = TRUE, repos=c(BiocInstaller::biocinstallRepos(), "http://cran.us.r-project.org"))
+devtools::install_github("shntnu/cytoplot", dependencies = TRUE, build_vignettes = TRUE, repos=BiocInstaller::biocinstallRepos())
 ```
 
