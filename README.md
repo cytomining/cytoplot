@@ -18,6 +18,9 @@ install.packages("devtools")
 
 install.packages("BiocInstaller")
 
-devtools::install_github("shntnu/cytoplot", dependencies = TRUE, build_vignettes = TRUE, repos=BiocInstaller::biocinstallRepos())
+devtools::install_github("shntnu/cytoplot", 
+                         dependencies = TRUE, 
+                         build_vignettes = TRUE, 
+                         repos = BiocInstaller::biocinstallRepos())
 ```
 
