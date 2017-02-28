@@ -5,10 +5,17 @@ Package for visualizing high-dimensional single-cell data
 
 ## Installation
 
-On OSX, you may need to do this to install FFTW
+You may need to install some libraries:
+
+OSX:
+```
+brew install fftw libtiff
+```
+
+Ubuntu:
 
 ```
-brew install fftw
+sudo apt-get install -y libfftw3-dev libtiff5 libtiff5-dev 
 ```
 
 Install the package:
