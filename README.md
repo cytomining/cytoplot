@@ -16,7 +16,7 @@ Install the package:
 ```R
 install.packages("devtools")
 
-install.packages("BiocInstaller")
+install.packages("BiocInstaller", repos = "https://bioconductor.org/packages/3.4/bioc")
 
 devtools::install_github("shntnu/cytoplot", 
                          dependencies = TRUE, 
