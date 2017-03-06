@@ -1,4 +1,4 @@
-[![Travis-CI Build Status](https://travis-ci.org/shntnu/cytoplot.svg?branch=master)](https://travis-ci.org/shntnu/cytoplot)
+[![Travis-CI Build Status](https://travis-ci.org/cytomining/cytoplot.svg?branch=master)](https://travis-ci.org/cytomining/cytoplot)
 
 # cytoplot
 Package for visualizing high-dimensional single-cell data
@@ -25,7 +25,7 @@ install.packages("devtools")
 
 install.packages("BiocInstaller", repos = "https://bioconductor.org/packages/3.4/bioc")
 
-devtools::install_github("shntnu/cytoplot", 
+devtools::install_github("cytomining/cytoplot", 
                          dependencies = TRUE, 
                          build_vignettes = TRUE, 
                          repos = BiocInstaller::biocinstallRepos())
@@ -33,7 +33,7 @@ devtools::install_github("shntnu/cytoplot",
 
 You may need to do run that again in order to build the vignettes correctly (seems like a bug in `install_github`):
 ```R
-devtools::install_github("shntnu/cytoplot", 
+devtools::install_github("cytomining/cytoplot", 
                          dependencies = TRUE, 
                          build_vignettes = TRUE, 
                          force = TRUE,
