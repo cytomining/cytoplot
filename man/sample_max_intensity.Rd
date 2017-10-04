@@ -17,4 +17,3 @@ robust max intensities per channel
 \description{
 Robust max intensity
 }
-

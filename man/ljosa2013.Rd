@@ -15,4 +15,3 @@ ljosa2013
 Image metadata and URLs for Ljosa et al., J. Biomol. Screening, 2013.
 }
 \keyword{datasets}
-

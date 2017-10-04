@@ -25,5 +25,5 @@ Imports: BiocInstaller (>= 1.22.3),
 Suggests: testthat (>= 1.0.2),
     knitr (>= 1.14),
     rmarkdown (>= 1.0)
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 VignetteBuilder: knitr
