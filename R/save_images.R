@@ -14,13 +14,13 @@
 #'
 #' @export
 #'
-save_images <- function(df, per_row=3, max_intensity=NULL, type="jpg",
+save_images <- function(df, per_row = 3, max_intensity = NULL, type="jpg",
                         output_dir=".", is_url=TRUE) {
   #TODO:implement !is_url
   stopifnot(is_url)
 
   df %>%
-    tidyr::unite(group_id, Metadata_Plate, Metadata_Well, remove=FALSE) %>%
+    tidyr::unite(group_id, Metadata_Plate, Metadata_Well, remove = FALSE) %>%
     split(.$group_id) %>%
     purrr::map(function(per_well) {
       per_well %>%
@@ -31,7 +31,7 @@ save_images <- function(df, per_row=3, max_intensity=NULL, type="jpg",
                       -Metadata_pert_id) %>%
         dplyr::arrange(Metadata_Channel, Metadata_Site)  %>%
         dplyr::rowwise() %>%
-        dplyr::mutate(Metadata_Channel=
+        dplyr::mutate(Metadata_Channel =
                         stringr::str_replace(Metadata_Channel, "URL_", "")) %>%
         dplyr::ungroup() %>%
         split(.$Metadata_Channel) %>%
@@ -43,7 +43,7 @@ save_images <- function(df, per_row=3, max_intensity=NULL, type="jpg",
             per_channel$Metadata_URL %>%
             purrr::map(EBImage::readImage) %>%
             EBImage::combine() %>%
-            EBImage::tile(nx=per_row, lwd=0)
+            EBImage::tile(nx = per_row, lwd = 0)
 
           if (!is.null(max_intensity)) {
             channel_name <-
@@ -52,7 +52,8 @@ save_images <- function(df, per_row=3, max_intensity=NULL, type="jpg",
               magrittr::extract2("Metadata_Channel")
 
             image %<>%
-              EBImage::normalize(inputRange=c(0, max_intensity[[channel_name]]))
+              EBImage::normalize(inputRange =
+                                   c(0, max_intensity[[channel_name]]))
           }
 
           image_filename <-
@@ -61,7 +62,7 @@ save_images <- function(df, per_row=3, max_intensity=NULL, type="jpg",
             tidyr::unite(filename, Metadata_pert_id, Metadata_Plate,
                          Metadata_Well, Metadata_Channel) %>%
             dplyr::rowwise() %>%
-            dplyr::mutate(filename=stringr::str_c(filename, ".", type)) %>%
+            dplyr::mutate(filename = stringr::str_c(filename, ".", type)) %>%
             dplyr::ungroup() %>%
             magrittr::extract2("filename")
 

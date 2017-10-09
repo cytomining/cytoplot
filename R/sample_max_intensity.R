@@ -32,4 +32,3 @@ sample_max_intensity <- function(df, is_url=TRUE) {
         magrittr::extract2("98%")
     })
 }
-
