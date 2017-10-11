@@ -20,6 +20,7 @@ options(EBImage.display = "raster")
 library(cytoplot)
 library(dplyr)
 library(magrittr)
+library(purrr)
 
 ```
 
@@ -88,4 +89,9 @@ EBImage::rgbImage(
   images$Week1_22123_B03$Tubulin %>% EBImage::readImage(),
   images$Week1_22123_B03$DAPI %>% EBImage::readImage()) %>%
   EBImage::display()
+
+images %>% 
+  flatten() %>% 
+  walk(file.remove)
+
 ```
