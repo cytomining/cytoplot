@@ -16,4 +16,8 @@ test_that("save_images works", {
                   package = "cytoplot"))
 
   expect_equal(a, b)
+
+  file.remove("cytochalasin_b_10_Week1_22123_B04_Actin.jpg")
+  file.remove("cytochalasin_b_10_Week1_22123_B04_DAPI.jpg")
+  file.remove("cytochalasin_b_10_Week1_22123_B04_Tubulin.jpg")
 })
