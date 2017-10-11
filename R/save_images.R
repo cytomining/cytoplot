@@ -66,7 +66,13 @@ save_images <- function(df, per_row = 3, max_intensity = NULL, type="jpg",
             dplyr::ungroup() %>%
             magrittr::extract2("filename")
 
-          EBImage::writeImage(image, file.path(output_dir, image_filename))
+          image_filename <-
+            file.path(output_dir, image_filename) %>%
+            normalizePath()
+
+          EBImage::writeImage(image, image_filename)
+
+          image_filename
 
         })
 
