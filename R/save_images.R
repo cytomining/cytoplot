@@ -25,10 +25,9 @@ save_images <- function(df, per_row = 3, max_intensity = NULL, type="jpg",
     purrr::map(function(per_well) {
       per_well %>%
         dplyr::select(Metadata_Plate, Metadata_Well, Metadata_Site,
-                      Metadata_pert_id, dplyr::matches("URL")) %>%
+                      dplyr::matches("URL")) %>%
         tidyr::gather(Metadata_Channel, Metadata_URL,
-                      -Metadata_Plate, -Metadata_Well, -Metadata_Site,
-                      -Metadata_pert_id) %>%
+                      -Metadata_Plate, -Metadata_Well, -Metadata_Site) %>%
         dplyr::arrange(Metadata_Channel, Metadata_Site)  %>%
         dplyr::rowwise() %>%
         dplyr::mutate(Metadata_Channel =
@@ -59,7 +58,7 @@ save_images <- function(df, per_row = 3, max_intensity = NULL, type="jpg",
           image_filename <-
             per_channel %>%
             dplyr::slice(1) %>%
-            tidyr::unite(filename, Metadata_pert_id, Metadata_Plate,
+            tidyr::unite(filename, Metadata_Plate,
                          Metadata_Well, Metadata_Channel) %>%
             dplyr::rowwise() %>%
             dplyr::mutate(filename = stringr::str_c(filename, ".", type)) %>%
