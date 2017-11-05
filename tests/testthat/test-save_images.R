@@ -8,16 +8,16 @@ test_that("save_images works", {
 
 
   a <-
-    EBImage::readImage("cytochalasin_b_10_Week1_22123_B04_Actin.jpg")
+    EBImage::readImage("Week1_22123_B04_Actin.jpg")
 
   b <-
     EBImage::readImage(
-      system.file("extdata", "cytochalasin_b_10_Week1_22123_B04_Actin.jpg",
+      system.file("extdata", "Week1_22123_B04_Actin.jpg",
                   package = "cytoplot"))
 
   expect_equal(a, b)
 
-  file.remove("cytochalasin_b_10_Week1_22123_B04_Actin.jpg")
-  file.remove("cytochalasin_b_10_Week1_22123_B04_DAPI.jpg")
-  file.remove("cytochalasin_b_10_Week1_22123_B04_Tubulin.jpg")
+  file.remove("Week1_22123_B04_Actin.jpg")
+  file.remove("Week1_22123_B04_DAPI.jpg")
+  file.remove("Week1_22123_B04_Tubulin.jpg")
 })
