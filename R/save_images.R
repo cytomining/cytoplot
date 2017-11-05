@@ -4,6 +4,7 @@
 #' @param per_row ...
 #' @param max_intensity ...
 #' @param type ...
+#' @param quality ...
 #' @param output_dir ...
 #' @param is_url ...
 #'
@@ -15,7 +16,7 @@
 #' @export
 #'
 save_images <- function(df, per_row = 3, max_intensity = NULL, type="jpg",
-                        output_dir=".", is_url=TRUE) {
+                        quality = 50, output_dir=".", is_url=TRUE) {
   #TODO:implement !is_url
   stopifnot(is_url)
 
@@ -69,7 +70,7 @@ save_images <- function(df, per_row = 3, max_intensity = NULL, type="jpg",
             file.path(output_dir, image_filename) %>%
             normalizePath()
 
-          EBImage::writeImage(image, image_filename)
+          EBImage::writeImage(image, image_filename, quality = quality)
 
           image_filename
 

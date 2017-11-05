@@ -4,7 +4,8 @@ test_that("save_images works", {
   save_images(dplyr::filter(ljosa2013,
                             Metadata_Plate == "Week1_22123" &
                               Metadata_Well == "B04"),
-              per_row = 2)
+              per_row = 2,
+              quality = 100)
 
 
   a <-
