@@ -5,7 +5,7 @@
 \title{Save images}
 \usage{
 save_images(df, per_row = 3, max_intensity = NULL, type = "jpg",
-  output_dir = ".", is_url = TRUE)
+  quality = 50, output_dir = ".", is_url = TRUE)
 }
 \arguments{
 \item{df}{...}
@@ -15,6 +15,8 @@ save_images(df, per_row = 3, max_intensity = NULL, type = "jpg",
 \item{max_intensity}{...}
 
 \item{type}{...}
+
+\item{quality}{...}
 
 \item{output_dir}{...}
 
