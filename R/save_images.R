@@ -15,8 +15,14 @@
 #'
 #' @export
 #'
-save_images <- function(df, per_row = 3, max_intensity = NULL, type="jpg",
-                        quality = 50, output_dir=".", is_url=TRUE) {
+save_images <- function(df,
+                        is_url = TRUE,
+                        max_intensity = NULL,
+                        output_dir = ".",
+                        per_row = 3,
+                        quality = 50,
+                        site_order = NULL,
+                        type = "jpg") {
   #TODO:implement !is_url
   stopifnot(is_url)
 
@@ -36,8 +42,23 @@ save_images <- function(df, per_row = 3, max_intensity = NULL, type="jpg",
         dplyr::ungroup() %>%
         split(.$Metadata_Channel) %>%
         purrr::map(function(per_channel) {
-          per_channel %<>%
-            dplyr::arrange(Metadata_Site)
+
+          if (!is.null(site_order)) {
+
+            per_channel %<>%
+              rowwise() %>%
+              mutate(Metadata_Site_ordered =
+                       order(site_order)[[Metadata_Site]]) %>%
+              ungroup()
+
+            per_channel %<>%
+              dplyr::arrange(Metadata_Site_ordered)
+
+          } else {
+            per_channel %<>%
+              dplyr::arrange(Metadata_Site)
+
+          }
 
           image <-
             per_channel$Metadata_URL %>%

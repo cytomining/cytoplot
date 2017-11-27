@@ -7,8 +7,8 @@ test_that("sample_max_intensity works", {
       dplyr::filter(Metadata_Plate == "Week1_22123" &
                       Metadata_Well == "B02") %>%
       sample_max_intensity(),
-    list(Actin = 0.0869739833676661,
-         DAPI = 0.0417340352483406,
-         Tubulin = 0.197937590600443))
+    list(Actin = 0.08764782177462424,
+         DAPI = 0.04174868390936141,
+         Tubulin = 0.1989776455329213))
 
 })

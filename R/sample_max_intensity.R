@@ -28,6 +28,6 @@ sample_max_intensity <- function(df, is_url=TRUE) {
         purrr::map_dbl(function(image) {
           quantile(EBImage::imageData(image), c(.98))[[1]]
         }) %>%
-        quantile(., c(.98), names = FALSE)
+        max()
     })
 }
