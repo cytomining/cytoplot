@@ -1,18 +1,18 @@
 Package: cytoplot
 Type: Package
 Title: Package for visualizing high-dimensional single-cell data
-Version: 0.1.0
+Version: 0.0.0.9000
 Authors@R: as.person(c(
     "Allen Goodman <allen.goodman@icloud.com> [aut]",
     "Shantanu Singh <shsingh@broadinstitute.org> [aut, cre]"
   ))
 Description: Package for visualizing high-dimensional single-cell data.
 Depends:
-    R (>= 3.1.0)
+    R (>= 3.6.0)
 License: MIT + file LICENSE
 LazyData: TRUE
-Imports: BiocInstaller (>= 1.22.3),
-    EBImage (>= 4.14.2),
+Imports:
+    EBImage (>= 4.28.1),
     futile.logger (>= 1.4.3),
     lazyeval (>= 0.2.0),
     magrittr (>= 1.5),
@@ -25,5 +25,5 @@ Imports: BiocInstaller (>= 1.22.3),
 Suggests: testthat (>= 1.0.2),
     knitr (>= 1.14),
     rmarkdown (>= 1.0)
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.0
 VignetteBuilder: knitr
