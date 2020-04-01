@@ -23,7 +23,9 @@ Install the package:
 ```R
 install.packages("devtools")
 
-install.packages("BiocInstaller", repos = "https://bioconductor.org/packages/3.4/bioc")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install(version = "3.10")
 
 devtools::install_github("cytomining/cytoplot", 
                          dependencies = TRUE, 

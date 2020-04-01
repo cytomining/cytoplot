@@ -4,8 +4,15 @@
 \alias{save_images}
 \title{Save images}
 \usage{
-save_images(df, per_row = 3, max_intensity = NULL, type = "jpg",
-  quality = 50, output_dir = ".", is_url = TRUE)
+save_images(
+  df,
+  per_row = 3,
+  max_intensity = NULL,
+  type = "jpg",
+  quality = 50,
+  output_dir = ".",
+  is_url = TRUE
+)
 }
 \arguments{
 \item{df}{...}
